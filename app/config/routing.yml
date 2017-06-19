@@ -1,3 +1,7 @@
+admin_projet:
+    resource: "@AdminBundle/Controller/ProjetController.php"
+    type:     annotation
+
 client:
     resource: "@ClientBundle/Controller/"
     type:     annotation

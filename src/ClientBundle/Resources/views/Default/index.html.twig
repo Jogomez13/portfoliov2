@@ -89,7 +89,8 @@
                           <div class="mb20">
                               <h2 class="title" data-animate="fadeInUp">My work</h2>
 
-                              <p class="lead" data-animate="fadeInUp">I have worked on dozens of projects so I have picked only the latest for you.</p>
+                              <p class="lead" data-animate="fadeInUp">La meilleure façon de faire du bon travail est d’aimer ce que l'on fait. Je suis fier de tous mes projets, petits et grands, car ils m'ont tous permis d'apprendre et de pousser mes limites. Pour faire un excellent travail , je suis constamment à la recherche de nouveaux défis et possibilités d'amélioration. Déterminé à travailler plus dur et plus fort.
+</p>
                           </div>
 
 
@@ -107,47 +108,46 @@
 
                           </div>
                           <!-- Reference detail -->
-
+                             
                           <div id="references-masonry" data-animate="fadeInUp">
-
+{% for projet in projets %}
                               <div class="reference-item">
                                   <div class="reference">
                                       <a href="#">
-                                          <img src="http://ainocreation.com/wp-content/uploads/2016/06/webdesign-41.jpg" class="img-responsive" alt="" />
+                                          <img src="{{asset('uploads/img/'~projet.imageun)}}" class="img-responsive" alt="" />
 
                                           <div class="overlay">
-                                              <h3 class="reference-title">Project name</h3>
-                                              <p>Short project description goes here...</p>
+                                              <h3 class="reference-title">{{ projet.nom }}</h3>
+                                              <p>{{ projet.minidescription }}</p>
                                           </div>
                                       </a>
 
-                                      <div class="sr-only reference-description" data-images="http://ainocreation.com/wp-content/uploads/2016/06/webdesign-41.jpg">
+                                      <div class="sr-only reference-description" data-images="{{asset('uploads/img2/'~projet.imagedeux)}}, {{asset('uploads/img3/'~projet.imagetrois)}}">
 
-                                          <p>Projecting surrounded literature yet delightful alteration but bed men. Open are from long why cold. If must snug by upon sang loud left. As me do preference entreaties compliment motionless ye literature. Day behaviour
-                                              explained law remainder. Produce can cousins account you pasture. Peculiar delicate an pleasant provided do perceive.</p>
-
-                                          <p>Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the. Off nay impossible dispatched partiality unaffected. Norland adapted put ham cordial. Ladies
-                                              talked may shy basket narrow see. Him she distrusts questions sportsmen. Tolerably pretended neglected on my earnestly by. Sex scale sir style truth ought.</p>
+                                          <p>{{ projet.description }}</p>
 
                                           <p class="buttons">
-                                              <a class="btn btn-primary" href="javascript:void(0);"><i class="fa fa-globe"></i> Visit website</a>
-                                              <a class="btn btn-primary" href="javascript:void(0);"><i class="fa fa-download"></i> Download case study</a>
+                                              <a class="btn btn-primary" href="{{ projet.lien }}"><i class="fa fa-globe"></i> Lien site internet</a>
+                                              <a class="btn btn-primary" href="{{ projet.github }}"><i class="fa fa-github"></i> Lien Github</a>
                                           </p>
                                       </div>
                                   </div>
                               </div>
 
 
-
+{% endfor %}
                           </div>
                           <!-- /#references-masonry -->
 
                       </div>
                       <!-- /.12 -->
+                      
                   </div>
                   <!-- /.container -->
+                   
               </div>
               <!-- /.section -->
+             
 
 
 		</div>

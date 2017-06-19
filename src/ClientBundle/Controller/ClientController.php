@@ -2,6 +2,7 @@
 
 namespace ClientBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -9,11 +10,20 @@ class ClientController extends Controller
 {
     /**
      * @Route("/", name="home")
+     * @Method("GET")
      */
     public function indexAction()
     {
-        return $this->render('ClientBundle:Default:index.html.twig');
+       $em = $this->getDoctrine()->getManager();
+
+        $projets = $em->getRepository('AdminBundle:Projet')->findAll();
+
+        return $this->render('ClientBundle:Default:index.html.twig', array(
+            'projets' => $projets,
+        ));
     }
+    
+
     
      /**
      * @Route("/about", name ="about")
